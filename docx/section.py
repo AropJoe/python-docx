@@ -4,7 +4,12 @@
 
 from __future__ import absolute_import, division, print_function, unicode_literals
 
-from collections import Sequence
+import sys
+
+if sys.version_info.major == 3 and sys.version_info.minor > 9:
+    from collections.abc import Sequence
+else:
+    from collections import Sequence
 
 from docx.blkcntnr import BlockItemContainer
 from docx.enum.section import WD_HEADER_FOOTER
